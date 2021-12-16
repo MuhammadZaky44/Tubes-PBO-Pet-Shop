@@ -9,6 +9,6 @@ package Controller;
  *
  * @author DELL
  */
-public class tblPelanggan {
+public class testing {
     
 }
