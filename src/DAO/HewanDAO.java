@@ -25,7 +25,19 @@ public class HewanDAO implements DAOInterface<Hewan> {
 
     @Override
     public void insert(Hewan object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement("INSERT INTO `hewan` (`id`, `id_user`, `nama`, `tahun_lahir`, `jenis`) VALUES (NULL, ?, ?, ?, ?)");
+            statement.setInt(1, idUser);
+            statement.setString(2, object.getNama());
+            statement.setInt(3, object.getTahunLahir());
+            statement.setString(4, object.getJenis());
+            statement.executeUpdate();
+            statement.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -51,7 +63,7 @@ public class HewanDAO implements DAOInterface<Hewan> {
             statement.setInt(1, idUser);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                list.add(new Hewan(rs.getInt("id"), rs.getString("nama"), rs.getInt("tahun_lahir"), rs.getString("jenis"), rs.getString("breed")));
+                list.add(new Hewan(rs.getInt("id"), rs.getString("nama"), rs.getInt("tahun_lahir"), rs.getString("jenis")));
             }
         } catch (Exception e) {
             e.printStackTrace();

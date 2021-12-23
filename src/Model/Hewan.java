@@ -16,7 +16,6 @@ public class Hewan {
     private String nama;
     private int tahunLahir;
     private String jenis;
-    private String breed;
     private List<HistoryGrooming> historyGroomingList;
     private List<HistoryPenitipan> historyPenitipanList;
     private User user;
@@ -27,13 +26,18 @@ public class Hewan {
     public Hewan(Integer id) {
         this.id = id;
     }
+    
+    public Hewan(String nama, int tahunLahir, String jenis) {
+        this.nama = nama;
+        this.tahunLahir = tahunLahir;
+        this.jenis = jenis;
+    }
 
-    public Hewan(Integer id, String nama, int tahunLahir, String jenis, String breed) {
+    public Hewan(Integer id, String nama, int tahunLahir, String jenis) {
         this.id = id;
         this.nama = nama;
         this.tahunLahir = tahunLahir;
         this.jenis = jenis;
-        this.breed = breed;
     }
 
     public Integer getId() {
@@ -68,14 +72,6 @@ public class Hewan {
         this.jenis = jenis;
     }
 
-    public String getBreed() {
-        return breed;
-    }
-
-    public void setBreed(String breed) {
-        this.breed = breed;
-    }
-
     public List<HistoryGrooming> getHistoryGroomingList() {
         return historyGroomingList;
     }
@@ -98,31 +94,6 @@ public class Hewan {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Hewan)) {
-            return false;
-        }
-        Hewan other = (Hewan) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Model.Hewan[ id=" + id + " ]";
     }
     
 }

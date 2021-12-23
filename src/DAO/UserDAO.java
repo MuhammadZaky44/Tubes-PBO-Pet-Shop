@@ -22,13 +22,13 @@ public class UserDAO implements DAOInterface<User> {
     Connection connection = Koneksi.getKoneksi();
 
     @Override
-    public void insert(User user) {
+    public void insert(User object) {
         PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement("INSERT INTO `user` (`id`, `username`, `password`) VALUES (?, ?, ?)");
             statement.setString(1, null);
-            statement.setString(2, user.getUsername());
-            statement.setString(3, user.getPassword());
+            statement.setString(2, object.getUsername());
+            statement.setString(3, object.getPassword());
             statement.executeUpdate();
             statement.close();
             
