@@ -61,13 +61,13 @@ public class UserDAO implements DAOInterface<User> {
         return false;
     }
     
-        public ResultSet cekAkun(String username) {
+    public ResultSet cekAkun(String username) {
         ResultSet result = null;
 
-        String query = "SELECT password FROM `user` WHERE username = '" + username + "'";
+        String query = "SELECT id, password FROM `user` WHERE username = '" + username + "'";
 
         try {
-            result = (ResultSet) Koneksi.getKoneksi().createStatement().executeQuery(query);
+            result = connection.createStatement().executeQuery(query);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }

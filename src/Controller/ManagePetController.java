@@ -8,6 +8,7 @@ package Controller;
 import DAO.HewanDAO;
 import Model.Hewan;
 import View.ManagePet;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,11 +18,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ManagePetController {
     ManagePet managePetView;
-    List<Hewan> hewanList;
+    List<Hewan> hewanList;   
+    private int idUser;
     HewanDAO hewanDAO;
 
-    public ManagePetController(ManagePet managePetView) {
+    public ManagePetController(ManagePet managePetView, int idUser) {
         this.managePetView = managePetView;
+        this.idUser = idUser;
+        hewanDAO = new HewanDAO(idUser);
     }
     
     public void initialization() {

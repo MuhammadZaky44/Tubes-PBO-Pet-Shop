@@ -17,6 +17,11 @@ import java.util.List;
  */
 public class HewanDAO implements DAOInterface<Hewan> {
     Connection connection = Koneksi.getKoneksi();
+    private int idUser;
+
+    public HewanDAO(int username) {
+        this.idUser = username;
+    }
 
     @Override
     public void insert(Hewan object) {
@@ -40,12 +45,13 @@ public class HewanDAO implements DAOInterface<Hewan> {
 
     @Override
     public List<Hewan> getAll() {
-        List<Hewan> list = new ArrayList<>();        
+        List<Hewan> list = new ArrayList<>();
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM hewan");            
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM hewan WHERE id_user=?");
+            statement.setInt(1, idUser);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                list.add(new Hewan(Integer.parseInt(rs.getString("id")), rs.getString("nama"), Integer.parseInt(rs.getString("tahun_lahir")), rs.getString("jenis"), rs.getString("breed")));
+                list.add(new Hewan(rs.getInt("id"), rs.getString("nama"), rs.getInt("tahun_lahir"), rs.getString("jenis"), rs.getString("breed")));
             }
         } catch (Exception e) {
             e.printStackTrace();

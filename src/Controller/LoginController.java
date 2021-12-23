@@ -19,13 +19,13 @@ public class LoginController {
         String username = form.usernameField.getText();
         String password = form.passwordField.getText();
 
-        ResultSet result = userDAO.cekAkun(username);
+        ResultSet result = userDAO.cekAkun(username);        
 
         try {
             validasi(username, password);
             if (result.next()) {
                 if (password.equals(result.getString("password"))) {
-                    new Dashboard(username).setVisible(true);
+                    new Dashboard(result.getInt("id"), username).setVisible(true);
                     form.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Password anda salah!");
@@ -33,7 +33,7 @@ public class LoginController {
             } else {
                 JOptionPane.showMessageDialog(null, "Akun tidak ditemukan.");
             }
-        } catch (Exception ex) {
+        } catch (Exception ex) {            
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
     }

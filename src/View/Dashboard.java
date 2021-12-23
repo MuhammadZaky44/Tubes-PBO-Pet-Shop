@@ -5,16 +5,18 @@ import Controller.DashboardController;
 
 public class Dashboard extends javax.swing.JFrame {
 
+    static int idUser;
     static String username;
     DashboardController controller = new DashboardController(this);
 
     /**
      * Creates new form Dashboard
-     * @param username
+     * @param idUser
      */
-    public Dashboard(String username) {
+    public Dashboard(int idUser, String username) {
         initComponents();
-        Dashboard.username = username;
+        this.idUser = idUser;
+        this.username = username;
         controller.initialization(username);
     }
 
@@ -135,7 +137,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void managePetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managePetBtnActionPerformed
         // TODO add your handling code here:
-        new ManagePet(username).setVisible(true);
+        new ManagePet(this.idUser).setVisible(true);
     }//GEN-LAST:event_managePetBtnActionPerformed
 
     private void historyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyBtnActionPerformed
@@ -178,7 +180,7 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard(username).setVisible(true);
+                new Dashboard(idUser, username).setVisible(true);
             }
         });
     }

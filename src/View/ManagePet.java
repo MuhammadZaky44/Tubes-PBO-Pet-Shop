@@ -3,13 +3,14 @@ package View;
 import Controller.ManagePetController;
 
 
-public class ManagePet extends javax.swing.JFrame {
-    ManagePetController controller = new ManagePetController(this);
-    static String username;
+public class ManagePet extends javax.swing.JFrame {    
+    static int idUser;
+    ManagePetController controller;
 
-    public ManagePet(String username) {
+    public ManagePet(int idUser) {
         initComponents();
-        ManagePet.username = username;
+        this.idUser = idUser;
+        controller = new ManagePetController(this, idUser);
         controller.initialization();
     }
 
@@ -203,7 +204,7 @@ public class ManagePet extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManagePet(username).setVisible(true);
+                new ManagePet(idUser).setVisible(true);
             }
         });
     }
