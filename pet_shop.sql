@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2021 at 07:39 AM
+-- Generation Time: Dec 23, 2021 at 11:08 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -53,17 +53,21 @@ CREATE TABLE `hewan` (
   `id_user` int(5) NOT NULL,
   `nama` varchar(15) NOT NULL,
   `tahun_lahir` int(4) NOT NULL,
-  `jenis` varchar(15) NOT NULL,
-  `breed` varchar(15) NOT NULL
+  `jenis` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `hewan`
 --
 
-INSERT INTO `hewan` (`id`, `id_user`, `nama`, `tahun_lahir`, `jenis`, `breed`) VALUES
-(1, 1, 'belang', 2011, 'kucing', 'maung'),
-(2, 1, 'belung', 2012, 'anjing', 'husky');
+INSERT INTO `hewan` (`id`, `id_user`, `nama`, `tahun_lahir`, `jenis`) VALUES
+(1, 1, 'belang', 2011, 'kucing'),
+(2, 1, 'asd', 2222, 'Anjing'),
+(3, 2, 'asd', 2222, 'comboBoxChanged'),
+(4, 2, 'xsa', 13123, 'Kucing'),
+(5, 2, 'axasf', 1213, 'Kucing'),
+(6, 2, 'axasf', 1213, 'Anjing'),
+(7, 2, 'axasf', 1213, 'Kelinci');
 
 -- --------------------------------------------------------
 
@@ -133,16 +137,18 @@ INSERT INTO `history_penitipan` (`id`, `id_user`, `id_hewan`, `timestamp`, `lama
 CREATE TABLE `user` (
   `id` int(5) NOT NULL,
   `username` varchar(15) NOT NULL,
-  `email` varchar(15) NOT NULL,
-  `password` varchar(15) NOT NULL
+  `password` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `email`, `password`) VALUES
-(1, 'shirokygerung', 'shiroky@gerung', 'shirokygerung');
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'shirokygerung', 'shirokygerung'),
+(2, 'asd', 'asdasdasd'),
+(3, 'oraykadut', 'mangujangnewak'),
+(4, 'xxxtenctation', 'asodjasodx');
 
 --
 -- Indexes for dumped tables
@@ -204,7 +210,7 @@ ALTER TABLE `barang`
 -- AUTO_INCREMENT for table `hewan`
 --
 ALTER TABLE `hewan`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `history_grooming`
@@ -228,7 +234,7 @@ ALTER TABLE `history_penitipan`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

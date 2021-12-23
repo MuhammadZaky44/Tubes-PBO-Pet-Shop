@@ -5,17 +5,25 @@
  */
 package View;
 
+import Controller.PenitipanController;
+
 /**
  *
  * @author MFI
  */
 public class Penitipan extends javax.swing.JFrame {
+    static int idUser;
+    PenitipanController controller;
 
     /**
      * Creates new form Penitipan
      */
-    public Penitipan() {
+    public Penitipan(int idUser) {
         initComponents();
+        this.idUser = idUser;
+        controller = new PenitipanController(this, idUser);
+        controller.renderTable();
+//        petlist
     }
 
     /**
@@ -30,7 +38,7 @@ public class Penitipan extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        petlist = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         konfirmasiBtn = new javax.swing.JButton();
@@ -40,12 +48,12 @@ public class Penitipan extends javax.swing.JFrame {
 
         jLabel1.setText("Pet");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        petlist.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(petlist);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setText("Penitipan");
@@ -152,7 +160,7 @@ public class Penitipan extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Penitipan().setVisible(true);
+                new Penitipan(idUser).setVisible(true);
             }
         });
     }
@@ -161,10 +169,10 @@ public class Penitipan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton konfirmasiBtn;
+    public javax.swing.JList<String> petlist;
     // End of variables declaration//GEN-END:variables
 }

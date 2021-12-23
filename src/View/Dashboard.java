@@ -132,7 +132,7 @@ public class Dashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void penitipanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_penitipanBtnActionPerformed
-        new Penitipan().setVisible(true);
+        new Penitipan(this.idUser).setVisible(true);
     }//GEN-LAST:event_penitipanBtnActionPerformed
 
     private void managePetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managePetBtnActionPerformed
