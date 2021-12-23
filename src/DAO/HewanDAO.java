@@ -45,33 +45,28 @@ public class HewanDAO implements DAOInterface<Hewan> {
 
     @Override
     public void update(Hewan object) {
-//        PreparedStatement statement = null;
-//        try {
-//            statement = connection.prepareStatement(CARI);
-//            statement.setString(1, object.getKode());
-//            ResultSet rs = statement.executeQuery();
-//            if (rs.next()) //jika data sudah pernah disimpan
-//            {
-//                statement = connection.prepareStatement(UPDATE);
-//                statement.setString(1, object.getNama());
-//                statement.setString(2, object.getAlamat());
-//                statement.setString(3, object.getUmur());
-//                statement.setString(4, object.getTlp());
-//                statement.setString(5, object.getKode());
-//                statement.executeUpdate();                    
-//                JOptionPane.showMessageDialog(null, "Data berhasil di ubah!");                
-//            } else {    //jika data belum pernah disimpan     
-//                JOptionPane.showMessageDialog(null, "Kode barang tersebut belum pernah di simpan!");    
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                statement.close();
-//            } catch (SQLException ex) {
-//                Logger.getLogger(DAO_Pelanggan.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement("SELECT * FROM hewan WHERE id like ?");
+            statement.setInt(1, object.getId());
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) //jika data sudah pernah disimpan
+            {
+                statement = connection.prepareStatement("UPDATE `hewan` SET `nama` = ?, `tahun_lahir` = ?, `jenis` = ? WHERE `hewan`.`id` = ?");                
+                statement.setString(1, object.getNama());
+                statement.setInt(2, object.getTahunLahir());
+                statement.setString(3, object.getJenis());
+                statement.setInt(4, object.getId());
+                System.out.println(object.getId());
+                statement.executeUpdate();                    
+                JOptionPane.showMessageDialog(null, "Data berhasil di ubah!");                
+            } else {    //jika data belum pernah disimpan     
+                JOptionPane.showMessageDialog(null, "Kode hewan belum pernah disimpan!");    
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
     }
 
     @Override
@@ -92,7 +87,7 @@ public class HewanDAO implements DAOInterface<Hewan> {
             statement.setInt(1, idUser);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                list.add(new Hewan(rs.getInt("id"), rs.getString("nama"), rs.getInt("tahun_lahir"), rs.getString("jenis")));
+                list.add(new Hewan(rs.getInt("id"), rs.getInt("id_user"), rs.getString("nama"), rs.getInt("tahun_lahir"), rs.getString("jenis")));
             }
         } catch (Exception e) {
             e.printStackTrace();
