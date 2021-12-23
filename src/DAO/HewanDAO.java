@@ -10,6 +10,9 @@ import Model.Hewan;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,7 +45,33 @@ public class HewanDAO implements DAOInterface<Hewan> {
 
     @Override
     public void update(Hewan object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        PreparedStatement statement = null;
+//        try {
+//            statement = connection.prepareStatement(CARI);
+//            statement.setString(1, object.getKode());
+//            ResultSet rs = statement.executeQuery();
+//            if (rs.next()) //jika data sudah pernah disimpan
+//            {
+//                statement = connection.prepareStatement(UPDATE);
+//                statement.setString(1, object.getNama());
+//                statement.setString(2, object.getAlamat());
+//                statement.setString(3, object.getUmur());
+//                statement.setString(4, object.getTlp());
+//                statement.setString(5, object.getKode());
+//                statement.executeUpdate();                    
+//                JOptionPane.showMessageDialog(null, "Data berhasil di ubah!");                
+//            } else {    //jika data belum pernah disimpan     
+//                JOptionPane.showMessageDialog(null, "Kode barang tersebut belum pernah di simpan!");    
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                statement.close();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(DAO_Pelanggan.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
     }
 
     @Override

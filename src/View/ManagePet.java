@@ -50,6 +50,11 @@ public class ManagePet extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        petTbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                petTblMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(petTbl);
 
         tambahBtn.setText("Tambah");
@@ -193,6 +198,10 @@ public class ManagePet extends javax.swing.JFrame {
         controller.delete();
         controller.renderTable();
     }//GEN-LAST:event_hapusBtnActionPerformed
+
+    private void petTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_petTblMouseClicked
+        controller.isiField(petTbl.getSelectedRow());
+    }//GEN-LAST:event_petTblMouseClicked
 
     /**
      * @param args the command line arguments

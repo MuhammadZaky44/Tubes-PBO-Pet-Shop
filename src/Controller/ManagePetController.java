@@ -51,6 +51,13 @@ public class ManagePetController {
         managePetView.petTbl.setModel(tblModel);
     }
     
+    public void isiField(int row) {
+        managePetView.idField.setText(String.valueOf(hewanList.get(row).getId()));
+        managePetView.namaField.setText(hewanList.get(row).getNama());
+        managePetView.jenisComboBox.getModel().setSelectedItem(hewanList.get(row).getJenis());
+        managePetView.tahunLahirField.setText(String.valueOf(hewanList.get(row).getTahunLahir()));
+    }
+    
     public void insert() {
         Hewan hewan = new Hewan(idUser, managePetView.namaField.getText(), Integer.parseInt(managePetView.tahunLahirField.getText()), (String) managePetView.jenisComboBox.getSelectedItem());
         hewanDAO.insert(hewan);
