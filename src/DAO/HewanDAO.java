@@ -71,7 +71,16 @@ public class HewanDAO implements DAOInterface<Hewan> {
 
     @Override
     public void delete(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement("DELETE FROM `hewan` WHERE `hewan`.`id` = ?");
+            statement.setInt(1, id);
+            statement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Data berhasil di hapus!");
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
