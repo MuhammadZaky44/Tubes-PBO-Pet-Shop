@@ -29,6 +29,7 @@ public class ManagePet extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel1.setText("Manage Pet");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(

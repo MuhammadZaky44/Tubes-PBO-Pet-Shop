@@ -39,6 +39,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel1.setText("Login");
 
         jLabel2.setText("Username");
@@ -158,6 +159,8 @@ public class Login extends javax.swing.JFrame {
 
     private void toRegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toRegisterBtnActionPerformed
         // TODO add your handling code here:
+        dispose();
+        new Registrasi().setVisible(true);
     }//GEN-LAST:event_toRegisterBtnActionPerformed
 
     /**

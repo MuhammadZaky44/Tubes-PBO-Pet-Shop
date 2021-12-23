@@ -47,6 +47,7 @@ public class Penitipan extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setText("Penitipan");
 
         jLabel3.setText("Lama Hari");

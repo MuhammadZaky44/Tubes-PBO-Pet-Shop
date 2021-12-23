@@ -47,6 +47,7 @@ public class Grooming extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(petList);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setText("Grooming");
 
         jLabel3.setText("Jam Grooming");

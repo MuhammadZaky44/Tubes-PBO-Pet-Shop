@@ -5,18 +5,21 @@
  */
 package View;
 
+import Controller.RegistrasiController;
+
 /**
  *
  * @author MFI
  */
 public class Registrasi extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Registrasi
-     */
+    
+    RegistrasiController controller = new RegistrasiController();
+    
     public Registrasi() {
         initComponents();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,14 +36,13 @@ public class Registrasi extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         registerBtn = new javax.swing.JButton();
         usernameField = new javax.swing.JTextField();
-        passwordField = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        telpField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         toLoginBtn = new javax.swing.JButton();
+        passwordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel1.setText("Registrasi");
 
         jLabel2.setText("Username");
@@ -60,20 +62,6 @@ public class Registrasi extends javax.swing.JFrame {
             }
         });
 
-        passwordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordFieldActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("No. Telpon");
-
-        telpField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telpFieldActionPerformed(evt);
-            }
-        });
-
         jLabel8.setText("Sudah punya akun?");
 
         toLoginBtn.setText("Login");
@@ -88,32 +76,30 @@ public class Registrasi extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(toLoginBtn)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel2))
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(passwordField)
-                            .addComponent(usernameField)
-                            .addComponent(telpField))
-                        .addGap(44, 44, 44))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(registerBtn)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
                                 .addComponent(jLabel1)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addComponent(toLoginBtn)
-                .addGap(0, 105, Short.MAX_VALUE))
+                        .addContainerGap(139, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(passwordField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(usernameField))
+                        .addGap(44, 44, 44))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,17 +114,13 @@ public class Registrasi extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(telpField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addGap(30, 30, 30)
                 .addComponent(registerBtn)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(toLoginBtn))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -163,22 +145,17 @@ public class Registrasi extends javax.swing.JFrame {
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         // TODO add your handling code here:
+        controller.registrasi(this);        
     }//GEN-LAST:event_registerBtnActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameFieldActionPerformed
 
-    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordFieldActionPerformed
-
-    private void telpFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telpFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_telpFieldActionPerformed
-
     private void toLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toLoginBtnActionPerformed
         // TODO add your handling code here:
+        dispose();
+        new Login().setVisible(true);
     }//GEN-LAST:event_toLoginBtnActionPerformed
 
     /**
@@ -220,13 +197,11 @@ public class Registrasi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField passwordField;
+    public javax.swing.JPasswordField passwordField;
     private javax.swing.JButton registerBtn;
-    private javax.swing.JTextField telpField;
     private javax.swing.JButton toLoginBtn;
-    private javax.swing.JTextField usernameField;
+    public javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }

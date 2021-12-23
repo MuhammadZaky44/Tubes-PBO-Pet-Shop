@@ -48,6 +48,7 @@ public class Beli extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel1.setText("Beli Alat/Barang");
 
         beliBtn.setText("Beli");
