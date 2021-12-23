@@ -15,10 +15,12 @@ public class HistoryGrooming {
 
     private Integer id;
     private Date timestamp;
-    private Date jam;
+    private String jam;
+    private String menit;
     private int harga;
-    private Hewan hewan;
-    private User user;
+    private int idHewan;
+    private int idUser;
+    private String date;
 
     public HistoryGrooming() {
     }
@@ -27,11 +29,19 @@ public class HistoryGrooming {
         this.id = id;
     }
 
-    public HistoryGrooming(Integer id, Date timestamp, Date jam, int harga) {
+    public HistoryGrooming(Integer id, Date timestamp, String date, int harga) {
         this.id = id;
         this.timestamp = timestamp;
-        this.jam = jam;
+        this.date = date;
         this.harga = harga;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public Integer getId() {
@@ -50,14 +60,22 @@ public class HistoryGrooming {
         this.timestamp = timestamp;
     }
 
-    public Date getJam() {
+    public String getJam() {
         return jam;
     }
 
-    public void setJam(Date jam) {
+    public void setJam(String jam) {
         this.jam = jam;
     }
-
+    
+    public void setMenit(String menit) {
+        this.menit = menit;
+    }
+    
+    public String getMenit() {
+        return menit;
+    }
+    
     public int getHarga() {
         return harga;
     }
@@ -65,46 +83,21 @@ public class HistoryGrooming {
     public void setHarga(int harga) {
         this.harga = harga;
     }
-
-    public Hewan getHewan() {
-        return hewan;
-    }
-
-    public void setHewan(Hewan hewan) {
-        this.hewan = hewan;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof HistoryGrooming)) {
-            return false;
-        }
-        HistoryGrooming other = (HistoryGrooming) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Model.HistoryGrooming[ id=" + id + " ]";
-    }
     
+    public int getIdHewan() {
+        return idHewan;
+    }
+
+    public void setIdHewan(int idHewan) {
+        this.idHewan = idHewan;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
 }

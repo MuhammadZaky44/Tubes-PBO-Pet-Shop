@@ -146,7 +146,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_historyBtnActionPerformed
 
     private void groomingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groomingBtnActionPerformed
-        new Grooming().setVisible(true);
+        new Grooming(this.idUser).setVisible(true);
     }//GEN-LAST:event_groomingBtnActionPerformed
 
     private void beliBarangBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beliBarangBtnActionPerformed
