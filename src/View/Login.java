@@ -5,12 +5,14 @@
  */
 package View;
 
+import Controller.LoginController;
+
 /**
  *
  * @author MFI
  */
 public class Login extends javax.swing.JFrame {
-
+    LoginController controller = new LoginController();
     /**
      * Creates new form LoginView
      */
@@ -147,6 +149,7 @@ public class Login extends javax.swing.JFrame {
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
+        controller.login(this);
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
@@ -206,8 +209,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginBtn;
-    private javax.swing.JTextField passwordField;
+    public javax.swing.JTextField passwordField;
     private javax.swing.JButton toRegisterBtn;
-    private javax.swing.JTextField usernameField;
+    public javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }

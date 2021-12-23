@@ -10,6 +10,7 @@ import Model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -58,6 +59,20 @@ public class UserDAO implements DAOInterface<User> {
             e.printStackTrace();
         }
         return false;
+    }
+    
+        public ResultSet cekAkun(String username) {
+        ResultSet result = null;
+
+        String query = "SELECT password FROM `user` WHERE username = '" + username + "'";
+
+        try {
+            result = (ResultSet) Koneksi.getKoneksi().createStatement().executeQuery(query);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+
+        return result;
     }
 
     @Override
