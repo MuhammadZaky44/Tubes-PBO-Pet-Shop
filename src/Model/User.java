@@ -5,56 +5,22 @@
  */
 package Model;
 
-import java.io.Serializable;
-import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import java.util.List;
 
 /**
  *
- * @author DELL
+ * @author MFI
  */
-@Entity
-@Table(name = "user")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
-    , @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id")
-    , @NamedQuery(name = "User.findByUsername", query = "SELECT u FROM User u WHERE u.username = :username")
-    , @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email")
-    , @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")})
-public class User implements Serializable {
+public class User {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "username")
     private String username;
-    @Basic(optional = false)
-    @Column(name = "email")
     private String email;
-    @Basic(optional = false)
-    @Column(name = "password")
     private String password;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUser")
-    private Collection<Penitipan> penitipanCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUser")
-    private Collection<Hewan> hewanCollection;
+    private List<HistoryGrooming> historyGroomingList;
+    private List<HistoryPembelian> historyPembelianList;
+    private List<HistoryPenitipan> historyPenitipanList;
+    private List<Hewan> hewanList;
 
     public User() {
     }
@@ -102,22 +68,36 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    @XmlTransient
-    public Collection<Penitipan> getPenitipanCollection() {
-        return penitipanCollection;
+    public List<HistoryGrooming> getHistoryGroomingList() {
+        return historyGroomingList;
     }
 
-    public void setPenitipanCollection(Collection<Penitipan> penitipanCollection) {
-        this.penitipanCollection = penitipanCollection;
+    public void setHistoryGroomingList(List<HistoryGrooming> historyGroomingList) {
+        this.historyGroomingList = historyGroomingList;
     }
 
-    @XmlTransient
-    public Collection<Hewan> getHewanCollection() {
-        return hewanCollection;
+    public List<HistoryPembelian> getHistoryPembelianList() {
+        return historyPembelianList;
     }
 
-    public void setHewanCollection(Collection<Hewan> hewanCollection) {
-        this.hewanCollection = hewanCollection;
+    public void setHistoryPembelianList(List<HistoryPembelian> historyPembelianList) {
+        this.historyPembelianList = historyPembelianList;
+    }
+
+    public List<HistoryPenitipan> getHistoryPenitipanList() {
+        return historyPenitipanList;
+    }
+
+    public void setHistoryPenitipanList(List<HistoryPenitipan> historyPenitipanList) {
+        this.historyPenitipanList = historyPenitipanList;
+    }
+
+    public List<Hewan> getHewanList() {
+        return hewanList;
+    }
+
+    public void setHewanList(List<Hewan> hewanList) {
+        this.hewanList = hewanList;
     }
 
     @Override

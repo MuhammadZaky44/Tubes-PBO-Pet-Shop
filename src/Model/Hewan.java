@@ -5,63 +5,21 @@
  */
 package Model;
 
-import java.io.Serializable;
-import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import java.util.List;
 
 /**
  *
- * @author DELL
+ * @author MFI
  */
-@Entity
-@Table(name = "hewan")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Hewan.findAll", query = "SELECT h FROM Hewan h")
-    , @NamedQuery(name = "Hewan.findById", query = "SELECT h FROM Hewan h WHERE h.id = :id")
-    , @NamedQuery(name = "Hewan.findByNama", query = "SELECT h FROM Hewan h WHERE h.nama = :nama")
-    , @NamedQuery(name = "Hewan.findByTahunLahir", query = "SELECT h FROM Hewan h WHERE h.tahunLahir = :tahunLahir")
-    , @NamedQuery(name = "Hewan.findByJenis", query = "SELECT h FROM Hewan h WHERE h.jenis = :jenis")
-    , @NamedQuery(name = "Hewan.findByBreed", query = "SELECT h FROM Hewan h WHERE h.breed = :breed")})
-public class Hewan implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
+public class Hewan {
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "nama")
     private String nama;
-    @Basic(optional = false)
-    @Column(name = "tahun_lahir")
     private int tahunLahir;
-    @Basic(optional = false)
-    @Column(name = "jenis")
     private String jenis;
-    @Basic(optional = false)
-    @Column(name = "breed")
     private String breed;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idHewan")
-    private Collection<Penitipan> penitipanCollection;
-    @JoinColumn(name = "id_user", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private User idUser;
+    private List<HistoryGrooming> historyGroomingList;
+    private List<HistoryPenitipan> historyPenitipanList;
+    private User user;
 
     public Hewan() {
     }
@@ -118,21 +76,28 @@ public class Hewan implements Serializable {
         this.breed = breed;
     }
 
-    @XmlTransient
-    public Collection<Penitipan> getPenitipanCollection() {
-        return penitipanCollection;
+    public List<HistoryGrooming> getHistoryGroomingList() {
+        return historyGroomingList;
     }
 
-    public void setPenitipanCollection(Collection<Penitipan> penitipanCollection) {
-        this.penitipanCollection = penitipanCollection;
+    public void setHistoryGroomingList(List<HistoryGrooming> historyGroomingList) {
+        this.historyGroomingList = historyGroomingList;
     }
 
-    public User getIdUser() {
-        return idUser;
+    public List<HistoryPenitipan> getHistoryPenitipanList() {
+        return historyPenitipanList;
     }
 
-    public void setIdUser(User idUser) {
-        this.idUser = idUser;
+    public void setHistoryPenitipanList(List<HistoryPenitipan> historyPenitipanList) {
+        this.historyPenitipanList = historyPenitipanList;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
