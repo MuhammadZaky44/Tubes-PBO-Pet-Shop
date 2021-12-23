@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class Hewan {
     private Integer id;
+    private Integer idUser;
     private String nama;
     private int tahunLahir;
     private String jenis;
@@ -33,8 +34,16 @@ public class Hewan {
         this.jenis = jenis;
     }
 
-    public Hewan(Integer id, String nama, int tahunLahir, String jenis) {
+    public Hewan(Integer idUser, String nama, int tahunLahir, String jenis) {
+        this.idUser = idUser;
+        this.nama = nama;
+        this.tahunLahir = tahunLahir;
+        this.jenis = jenis;
+    }
+    
+    public Hewan(Integer id, Integer idUser, String nama, int tahunLahir, String jenis) {
         this.id = id;
+        this.idUser = idUser;
         this.nama = nama;
         this.tahunLahir = tahunLahir;
         this.jenis = jenis;
@@ -46,6 +55,14 @@ public class Hewan {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Integer idUser) {
+        this.idUser = idUser;
     }
 
     public String getNama() {

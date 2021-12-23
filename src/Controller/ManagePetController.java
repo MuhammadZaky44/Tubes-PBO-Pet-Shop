@@ -64,7 +64,9 @@ public class ManagePetController {
     }
     
     public void update() {
-        
+        System.out.println(managePetView.idField.getText());
+        Hewan hewan = new Hewan(Integer.parseInt(managePetView.idField.getText()), idUser, managePetView.namaField.getText(), Integer.parseInt(managePetView.tahunLahirField.getText()), (String) managePetView.jenisComboBox.getSelectedItem());
+        hewanDAO.update(hewan);
     }
     
     public void delete() {

@@ -86,7 +86,7 @@ public class ManagePet extends javax.swing.JFrame {
 
         jenisComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kucing", "Anjing", "Kelinci" }));
 
-        jLabel6.setText("Kode");
+        jLabel6.setText("Id");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
