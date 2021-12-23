@@ -1,10 +1,16 @@
 package View;
 
+import Controller.ManagePetController;
+
 
 public class ManagePet extends javax.swing.JFrame {
+    ManagePetController controller = new ManagePetController(this);
+    static String username;
 
-    public ManagePet() {
+    public ManagePet(String username) {
         initComponents();
+        ManagePet.username = username;
+        controller.initialization();
     }
 
     @SuppressWarnings("unchecked")
@@ -14,10 +20,10 @@ public class ManagePet extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        tambahPetBtn = new javax.swing.JButton();
-        editPetBtn = new javax.swing.JButton();
-        hapusPetBtn = new javax.swing.JButton();
+        petTbl = new javax.swing.JTable();
+        tambahBtn = new javax.swing.JButton();
+        editBtn = new javax.swing.JButton();
+        hapusBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -27,12 +33,12 @@ public class ManagePet extends javax.swing.JFrame {
         breedComboBox = new javax.swing.JComboBox<>();
         tahunLahirField = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel1.setText("Manage Pet");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        petTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -43,18 +49,18 @@ public class ManagePet extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(petTbl);
 
-        tambahPetBtn.setText("Tambah Pet");
-        tambahPetBtn.addActionListener(new java.awt.event.ActionListener() {
+        tambahBtn.setText("Tambah");
+        tambahBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tambahPetBtnActionPerformed(evt);
+                tambahBtnActionPerformed(evt);
             }
         });
 
-        editPetBtn.setText("Edit Pet");
+        editBtn.setText("Edit");
 
-        hapusPetBtn.setText("Hapus Pet");
+        hapusBtn.setText("Hapus");
 
         jLabel2.setText("Nama");
 
@@ -75,25 +81,22 @@ public class ManagePet extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addGap(59, 59, 59)
-                        .addComponent(namaField))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(tambahPetBtn)
-                                .addGap(27, 27, 27)
-                                .addComponent(editPetBtn))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(163, 163, 163)
+                                .addComponent(jLabel1)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(59, 59, 59)
+                                .addComponent(namaField))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel4))
@@ -102,13 +105,20 @@ public class ManagePet extends javax.swing.JFrame {
                                     .addComponent(tahunLahirField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jenisComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel5)))))
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(breedComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(hapusPetBtn))))
+                                        .addGap(49, 49, 49)
+                                        .addComponent(jLabel5)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(breedComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(tambahBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(editBtn)
+                .addGap(58, 58, 58)
+                .addComponent(hapusBtn)
+                .addGap(42, 42, 42))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,9 +143,9 @@ public class ManagePet extends javax.swing.JFrame {
                     .addComponent(tahunLahirField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tambahPetBtn)
-                    .addComponent(editPetBtn)
-                    .addComponent(hapusPetBtn))
+                    .addComponent(tambahBtn)
+                    .addComponent(editBtn)
+                    .addComponent(hapusBtn))
                 .addGap(28, 28, 28))
         );
 
@@ -158,14 +168,10 @@ public class ManagePet extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void MExitMouseClicked(java.awt.event.MouseEvent evt) {                                   
-   System.exit(0);      
-    }
-    
-    private void tambahPetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahPetBtnActionPerformed
+
+    private void tambahBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahBtnActionPerformed
         
-    }//GEN-LAST:event_tambahPetBtnActionPerformed
+    }//GEN-LAST:event_tambahBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,15 +203,15 @@ public class ManagePet extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManagePet().setVisible(true);
+                new ManagePet(username).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> breedComboBox;
-    private javax.swing.JButton editPetBtn;
-    private javax.swing.JButton hapusPetBtn;
+    private javax.swing.JButton editBtn;
+    private javax.swing.JButton hapusBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -213,10 +219,10 @@ public class ManagePet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JComboBox<String> jenisComboBox;
     private javax.swing.JTextField namaField;
+    public javax.swing.JTable petTbl;
     private javax.swing.JTextField tahunLahirField;
-    private javax.swing.JButton tambahPetBtn;
+    private javax.swing.JButton tambahBtn;
     // End of variables declaration//GEN-END:variables
 }

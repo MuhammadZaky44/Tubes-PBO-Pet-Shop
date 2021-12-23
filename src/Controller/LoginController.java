@@ -25,7 +25,7 @@ public class LoginController {
             validasi(username, password);
             if (result.next()) {
                 if (password.equals(result.getString("password"))) {
-                    new Dashboard().setVisible(true);
+                    new Dashboard(username).setVisible(true);
                     form.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Password anda salah!");

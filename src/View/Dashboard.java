@@ -1,14 +1,21 @@
 package View;
 
+import Controller.DashboardController;
+
 
 public class Dashboard extends javax.swing.JFrame {
 
+    static String username;
+    DashboardController controller = new DashboardController(this);
+
     /**
      * Creates new form Dashboard
+     * @param username
      */
-    public Dashboard() {
+    public Dashboard(String username) {
         initComponents();
-        setLocationRelativeTo(this);
+        Dashboard.username = username;
+        controller.initialization(username);
     }
 
     @SuppressWarnings("unchecked")
@@ -16,75 +23,73 @@ public class Dashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        Manage_Pet_Button = new javax.swing.JButton();
-        History_Button = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        welcomeLabel = new javax.swing.JLabel();
+        managePetBtn = new javax.swing.JButton();
+        historyBtn = new javax.swing.JButton();
+        penitipanBtn = new javax.swing.JButton();
+        groomingBtn = new javax.swing.JButton();
+        beliBarangBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Selamat Datang, x!");
+        welcomeLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        welcomeLabel.setText("Selamat Datang, x!");
 
-        Manage_Pet_Button.setText("Manage Pet");
-
-        History_Button.setText("Lihat History");
-
-        jLabel3.setText("Transaksi Terakhir:");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jButton1.setText("Penitipan");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        managePetBtn.setText("Manage Pet");
+        managePetBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                managePetBtnActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Grooming");
+        historyBtn.setText("Lihat History");
+        historyBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                historyBtnActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Beli Alat/Barang");
+        penitipanBtn.setText("Penitipan");
+        penitipanBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                penitipanBtnActionPerformed(evt);
+            }
+        });
+
+        groomingBtn.setText("Grooming");
+        groomingBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groomingBtnActionPerformed(evt);
+            }
+        });
+
+        beliBarangBtn.setText("Beli Alat/Barang");
+        beliBarangBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                beliBarangBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jButton1)
-                        .addGap(36, 36, 36)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addComponent(jButton3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(welcomeLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Manage_Pet_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(History_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(managePetBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(historyBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(26, 26, 26)
+                        .addComponent(penitipanBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(groomingBtn)
+                        .addGap(31, 31, 31)
+                        .addComponent(beliBarangBtn)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -92,19 +97,16 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Manage_Pet_Button)
-                    .addComponent(jLabel1))
+                    .addComponent(managePetBtn)
+                    .addComponent(welcomeLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(History_Button)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(historyBtn)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)))
+                    .addComponent(penitipanBtn)
+                    .addComponent(groomingBtn)
+                    .addComponent(beliBarangBtn))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -127,9 +129,27 @@ public class Dashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void penitipanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_penitipanBtnActionPerformed
+        new Penitipan().setVisible(true);
+    }//GEN-LAST:event_penitipanBtnActionPerformed
+
+    private void managePetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managePetBtnActionPerformed
+        // TODO add your handling code here:
+        new ManagePet(username).setVisible(true);
+    }//GEN-LAST:event_managePetBtnActionPerformed
+
+    private void historyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyBtnActionPerformed
+        // TODO add your handling code here:
+        new History().setVisible(true);
+    }//GEN-LAST:event_historyBtnActionPerformed
+
+    private void groomingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groomingBtnActionPerformed
+        new Grooming().setVisible(true);
+    }//GEN-LAST:event_groomingBtnActionPerformed
+
+    private void beliBarangBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beliBarangBtnActionPerformed
+        new Pembelian().setVisible(true);
+    }//GEN-LAST:event_beliBarangBtnActionPerformed
 
     public static void main(String args[]) {
         
@@ -158,21 +178,18 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard().setVisible(true);
+                new Dashboard(username).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton History_Button;
-    private javax.swing.JButton Manage_Pet_Button;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton beliBarangBtn;
+    private javax.swing.JButton groomingBtn;
+    private javax.swing.JButton historyBtn;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton managePetBtn;
+    private javax.swing.JButton penitipanBtn;
+    public javax.swing.JLabel welcomeLabel;
     // End of variables declaration//GEN-END:variables
 }
