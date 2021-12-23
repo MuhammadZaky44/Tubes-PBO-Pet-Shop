@@ -33,7 +33,7 @@ public class ManagePetController {
     public void renderTable() {
         hewanList = hewanDAO.getAll();
         
-        DefaultTableModel tblModel = new DefaultTableModel(new Object[][]{}, new String[]{"Id", "Nama", "Tahun Lahir", "Jenis"}) {
+        DefaultTableModel tblModel = new DefaultTableModel(new Object[][]{}, header) {
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return false;
             }

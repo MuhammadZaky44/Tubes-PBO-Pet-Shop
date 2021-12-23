@@ -14,11 +14,11 @@ import java.util.Date;
 public class HistoryPenitipan {
 
     private Integer id;
-    private Date timestamp;
+    private String timestamp;
     private int lamaPenitipan;
     private int harga;
-    private Hewan hewan;
-    private User user;
+    private int idHewan;
+    private int idUser;
 
     public HistoryPenitipan() {
     }
@@ -27,7 +27,7 @@ public class HistoryPenitipan {
         this.id = id;
     }
 
-    public HistoryPenitipan(Integer id, Date timestamp, int lamaPenitipan, int harga) {
+    public HistoryPenitipan(Integer id, String timestamp, int lamaPenitipan, int harga) {
         this.id = id;
         this.timestamp = timestamp;
         this.lamaPenitipan = lamaPenitipan;
@@ -42,11 +42,11 @@ public class HistoryPenitipan {
         this.id = id;
     }
 
-    public Date getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -66,45 +66,21 @@ public class HistoryPenitipan {
         this.harga = harga;
     }
 
-    public Hewan getHewan() {
-        return hewan;
+    public int getIdHewan() {
+        return idHewan;
     }
 
-    public void setHewan(Hewan hewan) {
-        this.hewan = hewan;
+    public void setIdHewan(int idHewan) {
+        this.idHewan = idHewan;
     }
 
-    public User getUser() {
-        return user;
+    public int getIdUser() {
+        return idUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof HistoryPenitipan)) {
-            return false;
-        }
-        HistoryPenitipan other = (HistoryPenitipan) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Model.HistoryPenitipan[ id=" + id + " ]";
-    }
     
 }
