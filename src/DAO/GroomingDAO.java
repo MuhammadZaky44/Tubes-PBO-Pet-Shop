@@ -35,7 +35,6 @@ public class GroomingDAO implements DAOInterface<HistoryGrooming>{
         try {
             statement = connection.prepareStatement("INSERT INTO `history_grooming` (`id`, `id_user`, `id_hewan`, `timestamp`, `jam`, `harga`) VALUES (NULL, ?, ?, current_timestamp(), ?, ?)");
             statement.setInt(1, idUser);
-            System.out.println(object.getIdHewan());
             statement.setInt(2, object.getIdHewan());
             statement.setString(3, object.getDate());
             statement.setInt(4, object.getHarga());

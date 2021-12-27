@@ -30,7 +30,7 @@ public class PenitipanDAO implements DAOInterface<HistoryPenitipan> {
     public void insert(HistoryPenitipan object) {
         PreparedStatement statement = null;
         try {
-            statement = connection.prepareStatement("INSERT INTO `history_penitipan` (`id`, `id_user`, `id_hewan`, `timestamp`, `lama_penitipan`, `harga`) VALUES (NULL, '?', '?', current_timestamp(), '?', '?')");
+            statement = connection.prepareStatement("INSERT INTO `history_penitipan` (`id`, `id_user`, `id_hewan`, `timestamp`, `lama_penitipan`, `harga`) VALUES (NULL, ?, ?, current_timestamp(), ?, ?)");
             statement.setInt(1, idUser);
             statement.setInt(2, object.getIdHewan());
             statement.setInt(3, object.getLamaPenitipan());

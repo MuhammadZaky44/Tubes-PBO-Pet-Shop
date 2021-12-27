@@ -57,7 +57,6 @@ public class HewanDAO implements DAOInterface<Hewan> {
                 statement.setInt(2, object.getTahunLahir());
                 statement.setString(3, object.getJenis());
                 statement.setInt(4, object.getId());
-                System.out.println(object.getId());
                 statement.executeUpdate();                    
                 JOptionPane.showMessageDialog(null, "Data berhasil di ubah!");                
             } else {    //jika data belum pernah disimpan     

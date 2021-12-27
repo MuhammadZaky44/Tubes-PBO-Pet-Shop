@@ -63,8 +63,6 @@ public class GroomingController {
         
         int jam = (Integer) groomingView.jamSpinner.getValue();
         int menit = (Integer) groomingView.menitSpinner.getValue();
-        System.out.println(jam);
-        System.out.println(menit);
         int harga = 50000;
         
         LocalDate lt = LocalDate.now();

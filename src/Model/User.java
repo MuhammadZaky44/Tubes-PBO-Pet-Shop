@@ -21,7 +21,6 @@ public class User {
     private String username;
     private String password;
     private List<HistoryGrooming> historyGroomingList;
-    private List<HistoryPembelian> historyPembelianList;
     private List<HistoryPenitipan> historyPenitipanList;
     private List<Hewan> hewanList;
     
@@ -66,14 +65,6 @@ public class User {
 
     public void setHistoryGroomingList(List<HistoryGrooming> historyGroomingList) {
         this.historyGroomingList = historyGroomingList;
-    }
-
-    public List<HistoryPembelian> getHistoryPembelianList() {
-        return historyPembelianList;
-    }
-
-    public void setHistoryPembelianList(List<HistoryPembelian> historyPembelianList) {
-        this.historyPembelianList = historyPembelianList;
     }
 
     public List<HistoryPenitipan> getHistoryPenitipanList() {

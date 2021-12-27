@@ -30,7 +30,6 @@ public class Dashboard extends javax.swing.JFrame {
         historyBtn = new javax.swing.JButton();
         penitipanBtn = new javax.swing.JButton();
         groomingBtn = new javax.swing.JButton();
-        beliBarangBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,13 +64,6 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        beliBarangBtn.setText("Beli Alat/Barang");
-        beliBarangBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                beliBarangBtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -79,35 +71,32 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(penitipanBtn)
+                        .addGap(37, 37, 37)
+                        .addComponent(groomingBtn))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(welcomeLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(managePetBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(historyBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(penitipanBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(groomingBtn)
-                        .addGap(31, 31, 31)
-                        .addComponent(beliBarangBtn)))
-                .addContainerGap())
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(historyBtn)
+                            .addComponent(managePetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(managePetBtn)
-                    .addComponent(welcomeLabel))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(welcomeLabel)
+                    .addComponent(managePetBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(historyBtn)
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(penitipanBtn)
-                    .addComponent(groomingBtn)
-                    .addComponent(beliBarangBtn))
+                    .addComponent(groomingBtn))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -117,8 +106,8 @@ public class Dashboard extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,10 +137,6 @@ public class Dashboard extends javax.swing.JFrame {
     private void groomingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groomingBtnActionPerformed
         new Grooming(this.idUser).setVisible(true);
     }//GEN-LAST:event_groomingBtnActionPerformed
-
-    private void beliBarangBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beliBarangBtnActionPerformed
-        new Pembelian().setVisible(true);
-    }//GEN-LAST:event_beliBarangBtnActionPerformed
 
     public static void main(String args[]) {
         
@@ -186,7 +171,6 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton beliBarangBtn;
     private javax.swing.JButton groomingBtn;
     private javax.swing.JButton historyBtn;
     private javax.swing.JPanel jPanel1;
