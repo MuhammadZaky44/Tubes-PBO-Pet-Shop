@@ -66,9 +66,9 @@ public class PenitipanDAO implements DAOInterface<HistoryPenitipan> {
             statement.setInt(1, idUser);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                HistoryPenitipan penitipan = new HistoryPenitipan(rs.getInt("id"), rs.getString("timestamp"), rs.getInt("lama_hari"), rs.getInt("harga"));
+                HistoryPenitipan penitipan = new HistoryPenitipan(rs.getInt("id"), rs.getString("timestamp"), rs.getInt("lama_penitipan"), rs.getInt("harga"));
                 penitipan.setIdUser(rs.getInt("id_user"));
-                penitipan.setIdUser(rs.getInt("id_hewan"));
+                penitipan.setIdHewan(rs.getInt("id_hewan"));
                 list.add(penitipan);
             }
         } catch (Exception e) {

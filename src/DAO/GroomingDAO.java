@@ -65,13 +65,13 @@ public class GroomingDAO implements DAOInterface<HistoryGrooming>{
     public List<HistoryGrooming> getAll() {
         List<HistoryGrooming> list = new ArrayList<>();
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM `history_penitipan` WHERE id_user=?");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM `history_grooming` WHERE id_user=?");
             statement.setInt(1, idUser);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                HistoryGrooming grooming = new HistoryGrooming(rs.getInt("id"), rs.getDate("timestamp"), rs.getString("date"), rs.getInt("harga"));
+                HistoryGrooming grooming = new HistoryGrooming(rs.getInt("id"), rs.getDate("timestamp"), rs.getString("jam"), rs.getInt("harga"));
                 grooming.setIdUser(rs.getInt("id_user"));
-                grooming.setIdUser(rs.getInt("id_hewan"));
+                grooming.setIdHewan(rs.getInt("id_hewan"));
                 list.add(grooming);
             }
         } catch (Exception e) {

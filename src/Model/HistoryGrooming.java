@@ -15,8 +15,6 @@ public class HistoryGrooming {
 
     private Integer id;
     private Date timestamp;
-    private String jam;
-    private String menit;
     private int harga;
     private int idHewan;
     private int idUser;
@@ -58,22 +56,6 @@ public class HistoryGrooming {
 
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
-    }
-
-    public String getJam() {
-        return jam;
-    }
-
-    public void setJam(String jam) {
-        this.jam = jam;
-    }
-    
-    public void setMenit(String menit) {
-        this.menit = menit;
-    }
-    
-    public String getMenit() {
-        return menit;
     }
     
     public int getHarga() {

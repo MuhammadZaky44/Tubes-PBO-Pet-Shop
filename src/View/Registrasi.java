@@ -13,10 +13,11 @@ import Controller.RegistrasiController;
  */
 public class Registrasi extends javax.swing.JFrame {
     
-    RegistrasiController controller = new RegistrasiController();
+    RegistrasiController controller;
     
     public Registrasi() {
         initComponents();
+        controller = new RegistrasiController(this);
     }
     
     
@@ -145,7 +146,7 @@ public class Registrasi extends javax.swing.JFrame {
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         // TODO add your handling code here:
-        controller.registrasi(this);        
+        controller.registrasi();
     }//GEN-LAST:event_registerBtnActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed

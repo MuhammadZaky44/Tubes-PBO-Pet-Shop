@@ -25,7 +25,6 @@ public class Penitipan extends javax.swing.JFrame {
         this.idUser = idUser;
         controller = new PenitipanController(this, idUser);
         controller.renderTable();
-//        petlist
     }
 
     /**
@@ -53,7 +52,7 @@ public class Penitipan extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setText("Penitipan");
 
-        jLabel3.setText("Lama Hari");
+        jLabel3.setText("Lama Penitipan (Hari)");
 
         konfirmasiBtn.setText("Konfirmasi");
         konfirmasiBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -95,13 +94,14 @@ public class Penitipan extends javax.swing.JFrame {
                     .addComponent(lamaField))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(193, 193, 193))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(188, 188, 188)
-                .addComponent(konfirmasiBtn)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(214, 214, 214))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(konfirmasiBtn)
+                        .addGap(201, 201, 201))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

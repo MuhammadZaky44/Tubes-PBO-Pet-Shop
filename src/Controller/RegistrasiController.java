@@ -18,10 +18,15 @@ import javax.swing.JOptionPane;
  */
 public class RegistrasiController {
     private UserDAO userDAO = new UserDAO();
+    private Registrasi registrasiView;
+
+    public RegistrasiController(Registrasi registrasiView) {
+        this.registrasiView = registrasiView;
+    }
     
-    public void registrasi(Registrasi form) {
-        String username = form.usernameField.getText();
-        String password = form.passwordField.getText();
+    public void registrasi() {
+        String username = registrasiView.usernameField.getText();
+        String password = registrasiView.passwordField.getText();
         
         User user = new User(username, password);
         
@@ -29,7 +34,7 @@ public class RegistrasiController {
         if(isValid) {
             userDAO.insert(user);
             JOptionPane.showMessageDialog(null, "Registrasi berhasil.");
-            form.dispose();
+            registrasiView.dispose();
             new Login().setVisible(true);
         }
     }

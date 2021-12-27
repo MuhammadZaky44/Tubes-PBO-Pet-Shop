@@ -12,12 +12,13 @@ import Controller.LoginController;
  * @author MFI
  */
 public class Login extends javax.swing.JFrame {
-    LoginController controller = new LoginController();
+    LoginController controller;
     /**
      * Creates new form LoginView
      */
     public Login() {
         initComponents();
+        controller = new LoginController(this);
     }
 
     /**
@@ -143,7 +144,7 @@ public class Login extends javax.swing.JFrame {
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
-        controller.login(this);
+        controller.login();
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed

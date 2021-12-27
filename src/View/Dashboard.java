@@ -7,7 +7,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     static int idUser;
     static String username;
-    DashboardController controller = new DashboardController(this);
+    DashboardController controller;
 
     /**
      * Creates new form Dashboard
@@ -17,6 +17,7 @@ public class Dashboard extends javax.swing.JFrame {
         initComponents();
         this.idUser = idUser;
         this.username = username;
+        controller = new DashboardController(this);
         controller.initialization(username);
     }
 
@@ -131,7 +132,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void historyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyBtnActionPerformed
         // TODO add your handling code here:
-        new History().setVisible(true);
+        new History(this.idUser).setVisible(true);
     }//GEN-LAST:event_historyBtnActionPerformed
 
     private void groomingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groomingBtnActionPerformed

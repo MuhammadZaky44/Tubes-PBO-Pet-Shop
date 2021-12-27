@@ -14,10 +14,15 @@ import View.Login;
  */
 public class LoginController {
     private UserDAO userDAO = new UserDAO(); 
+    private Login loginView;
+
+    public LoginController(Login loginView) {
+        this.loginView = loginView;
+    }
     
-    public void login(Login form) {
-        String username = form.usernameField.getText();
-        String password = form.passwordField.getText();
+    public void login() {
+        String username = loginView.usernameField.getText();
+        String password = loginView.passwordField.getText();
 
         ResultSet result = userDAO.cekAkun(username);        
 
@@ -26,7 +31,7 @@ public class LoginController {
             if (result.next()) {
                 if (password.equals(result.getString("password"))) {
                     new Dashboard(result.getInt("id"), username).setVisible(true);
-                    form.dispose();
+                    loginView.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Password anda salah!");
                 }
