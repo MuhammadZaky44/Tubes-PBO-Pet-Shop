@@ -7,12 +7,9 @@ package Controller;
 
 import DAO.GroomingDAO;
 import DAO.HewanDAO;
-import DAO.PenitipanDAO;
 import Model.Hewan;
 import Model.HistoryGrooming;
-import Model.HistoryPenitipan;
 import View.Grooming;
-import View.Penitipan;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -58,7 +55,7 @@ public class GroomingController {
         groomingView.petTbl.setModel(tblModel);
     }
     
-    public void konfirmasi(int idHewan) {        
+    public void konfirmasi(int idHewan, String namaHewan) {        
         HistoryGrooming grooming = new HistoryGrooming();
         
         int jam = (Integer) groomingView.jamSpinner.getValue();
@@ -74,16 +71,12 @@ public class GroomingController {
         grooming.setHarga(harga);
         
         int n = JOptionPane.showConfirmDialog(
-                            groomingView, String.format("Apakah anda ingin menitipkan %s selama %s dengan biaya %s?", idHewan, date, harga),
+                            groomingView, String.format("Apakah anda ingin menitipkan %s selama %s dengan biaya %s?", namaHewan, date, harga),
                             "An Inane Question",
                             JOptionPane.YES_NO_OPTION);
         
         if (n == JOptionPane.YES_OPTION) {
             groomingDAO.insert(grooming);
-        } else if (n == JOptionPane.NO_OPTION) {
-            
-        } else {
-            
         }
                 
     }

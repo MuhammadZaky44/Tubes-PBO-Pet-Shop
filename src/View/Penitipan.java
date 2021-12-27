@@ -15,6 +15,7 @@ public class Penitipan extends javax.swing.JFrame {
     static int idUser;
     PenitipanController controller;
     private int selectedHewan;
+    private String selectedHewanNama;
 
     /**
      * Creates new form Penitipan
@@ -141,11 +142,12 @@ public class Penitipan extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void konfirmasiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_konfirmasiBtnActionPerformed
-        controller.konfirmasi(selectedHewan);
+        controller.konfirmasi(selectedHewan, selectedHewanNama);
     }//GEN-LAST:event_konfirmasiBtnActionPerformed
 
     private void petTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_petTblMouseClicked
         selectedHewan = (int) petTbl.getModel().getValueAt(petTbl.getSelectedRow(), 0);
+        selectedHewanNama = (String) petTbl.getModel().getValueAt(petTbl.getSelectedRow(), 1);
     }//GEN-LAST:event_petTblMouseClicked
 
     /**

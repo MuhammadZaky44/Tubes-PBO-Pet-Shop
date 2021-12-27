@@ -54,10 +54,17 @@ public class PenitipanController {
         penitipanView.petTbl.setModel(tblModel);
     }
     
-    public void konfirmasi(int idHewan) {        
+    public void konfirmasi(int idHewan, String namaHewan) {
+        String inputLama = penitipanView.lamaField.getText();
+        boolean isValid = validasi(inputLama);
+        
+        if (!isValid) {
+            return;
+        }
+        
         HistoryPenitipan penitipan = new HistoryPenitipan();
         
-        int lama = Integer.parseInt(penitipanView.lamaField.getText());
+        int lama = Integer.parseInt(inputLama);
         int harga = lama * 25000;
         
         penitipan.setIdHewan(idHewan);
@@ -65,17 +72,27 @@ public class PenitipanController {
         penitipan.setHarga(lama * 25000);
         
         int n = JOptionPane.showConfirmDialog(
-                            penitipanView, String.format("Apakah anda ingin menitipkan %s selama %s dengan biaya %s?", idHewan, lama, harga),
+                            penitipanView, String.format("Apakah anda ingin menitipkan %s selama %s dengan biaya %s?", namaHewan, lama, harga),
                             "An Inane Question",
                             JOptionPane.YES_NO_OPTION);
         
         if (n == JOptionPane.YES_OPTION) {
             penitipanDAO.insert(penitipan);
-        } else if (n == JOptionPane.NO_OPTION) {
-            
-        } else {
-            
         }
                 
+    }
+    
+    public boolean validasi(String lamaHari) {
+        if(lamaHari.equals("")) {
+            JOptionPane.showMessageDialog(null, "Mohon isi lama hari.");
+            return false;
+        }
+        
+        if(Integer.parseInt(lamaHari) < 1 || Integer.parseInt(lamaHari) > 45) {
+            JOptionPane.showMessageDialog(null, "Lama hari minimal 1 hari dan maksimal 45 hari!");
+            return false;
+        }
+        
+        return true;
     }
 }

@@ -16,6 +16,7 @@ public class Grooming extends javax.swing.JFrame {
     static int idUser;
     GroomingController controller;
     private int selectedHewan;
+    private String selectedHewanNama;
     
     /**
      * Creates new form Grooming
@@ -151,12 +152,13 @@ public class Grooming extends javax.swing.JFrame {
 
     private void konfirmasiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_konfirmasiBtnActionPerformed
         // TODO add your handling code here:
-        controller.konfirmasi(selectedHewan);
+        controller.konfirmasi(selectedHewan, selectedHewanNama);
     }//GEN-LAST:event_konfirmasiBtnActionPerformed
 
     private void petTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_petTblMouseClicked
         // TODO add your handling code here:
         selectedHewan = (int) petTbl.getModel().getValueAt(petTbl.getSelectedRow(), 0);
+        selectedHewanNama = (String) petTbl.getModel().getValueAt(petTbl.getSelectedRow(), 1);
     }//GEN-LAST:event_petTblMouseClicked
 
     /**
