@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2021 at 11:08 AM
+-- Generation Time: Dec 28, 2021 at 02:01 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -20,27 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `pet_shop`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `barang`
---
-
-CREATE TABLE `barang` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(20) NOT NULL,
-  `harga` int(11) NOT NULL,
-  `stock` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `barang`
---
-
-INSERT INTO `barang` (`id`, `nama`, `harga`, `stock`) VALUES
-(1, 'Makanan kucing', 20000, 2),
-(2, 'Makanan anjing', 21000, 5);
 
 -- --------------------------------------------------------
 
@@ -62,12 +41,10 @@ CREATE TABLE `hewan` (
 
 INSERT INTO `hewan` (`id`, `id_user`, `nama`, `tahun_lahir`, `jenis`) VALUES
 (1, 1, 'belang', 2011, 'kucing'),
-(2, 1, 'asd', 2222, 'Anjing'),
-(3, 2, 'asd', 2222, 'comboBoxChanged'),
-(4, 2, 'xsa', 13123, 'Kucing'),
-(5, 2, 'axasf', 1213, 'Kucing'),
-(6, 2, 'axasf', 1213, 'Anjing'),
-(7, 2, 'axasf', 1213, 'Kelinci');
+(2, 1, 'blackie', 2014, 'Anjing'),
+(4, 2, 'smol', 2016, 'Kucing'),
+(5, 2, 'big boss', 2013, 'Kucing'),
+(6, 2, 'marshall', 2010, 'Anjing');
 
 -- --------------------------------------------------------
 
@@ -90,20 +67,8 @@ CREATE TABLE `history_grooming` (
 
 INSERT INTO `history_grooming` (`id`, `id_user`, `id_hewan`, `timestamp`, `jam`, `harga`) VALUES
 (1, 1, 1, '2021-12-22 05:52:16', '2021-12-22 06:51:58', 50000),
-(2, 1, 2, '2021-12-22 05:52:16', '2021-12-22 06:51:58', 50000);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `history_pembelian`
---
-
-CREATE TABLE `history_pembelian` (
-  `id` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `harga` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(2, 1, 2, '2021-12-22 05:52:16', '2021-12-22 06:51:58', 50000),
+(3, 2, 6, '2021-12-27 06:00:01', '2021-12-27 10:00:00', 50000);
 
 -- --------------------------------------------------------
 
@@ -126,7 +91,9 @@ CREATE TABLE `history_penitipan` (
 
 INSERT INTO `history_penitipan` (`id`, `id_user`, `id_hewan`, `timestamp`, `lama_penitipan`, `harga`) VALUES
 (1, 1, 1, '2021-12-22 05:46:12', 7, 90000),
-(2, 1, 2, '2021-12-22 05:46:12', 14, 180000);
+(2, 1, 2, '2021-12-22 05:46:12', 14, 180000),
+(3, 2, 6, '2021-12-23 13:30:56', 3, 75000),
+(4, 2, 5, '2021-12-27 05:59:16', 3, 75000);
 
 -- --------------------------------------------------------
 
@@ -146,19 +113,11 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`) VALUES
 (1, 'shirokygerung', 'shirokygerung'),
-(2, 'asd', 'asdasdasd'),
-(3, 'oraykadut', 'mangujangnewak'),
-(4, 'xxxtenctation', 'asodjasodx');
+(2, 'asd', 'asdasdasd');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `barang`
---
-ALTER TABLE `barang`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `hewan`
@@ -174,13 +133,6 @@ ALTER TABLE `history_grooming`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_id_user_grooming` (`id_user`),
   ADD KEY `fk_id_hewan_grooming` (`id_hewan`);
-
---
--- Indexes for table `history_pembelian`
---
-ALTER TABLE `history_pembelian`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_id_user_pembelian` (`id_user`);
 
 --
 -- Indexes for table `history_penitipan`
@@ -201,34 +153,22 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `barang`
---
-ALTER TABLE `barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT for table `hewan`
 --
 ALTER TABLE `hewan`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `history_grooming`
 --
 ALTER TABLE `history_grooming`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `history_pembelian`
---
-ALTER TABLE `history_pembelian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `history_penitipan`
 --
 ALTER TABLE `history_penitipan`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -252,12 +192,6 @@ ALTER TABLE `hewan`
 ALTER TABLE `history_grooming`
   ADD CONSTRAINT `fk_id_hewan_grooming` FOREIGN KEY (`id_hewan`) REFERENCES `hewan` (`id`),
   ADD CONSTRAINT `fk_id_user_grooming` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`);
-
---
--- Constraints for table `history_pembelian`
---
-ALTER TABLE `history_pembelian`
-  ADD CONSTRAINT `fk_id_user_pembelian` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `history_penitipan`
