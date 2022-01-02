@@ -71,7 +71,7 @@ public class GroomingController {
         grooming.setHarga(harga);
         
         int n = JOptionPane.showConfirmDialog(
-                            groomingView, String.format("Apakah anda ingin melakukan grooming untuk %s pada jam %s dengan biaya %s?", namaHewan, date, harga),
+                            groomingView, String.format("Apakah anda ingin melakukan grooming untuk hewan dengan nama ' %s ' pada waktu %s dengan biaya %s?", namaHewan, date, harga),
                             "An Inane Question",
                             JOptionPane.YES_NO_OPTION);
         

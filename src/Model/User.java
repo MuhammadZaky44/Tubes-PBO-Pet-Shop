@@ -20,13 +20,33 @@ public class User {
     private Integer id;
     private String username;
     private String password;
+    private String handphone;
+    private String alamat;
     private List<HistoryGrooming> historyGroomingList;
     private List<HistoryPenitipan> historyPenitipanList;
     private List<Hewan> hewanList;
     
-    public User(String username, String password) {
+    public User(String username, String password, String handphone, String alamat) {
         this.username = username;
         this.password = password;
+        this.handphone = handphone;
+        this.alamat = alamat;
+    }
+
+    public String getHandphone() {
+        return handphone;
+    }
+
+    public void setHandphone(String handphone) {
+        this.handphone = handphone;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
     }
 
     public User(Integer id, String username, String password) {

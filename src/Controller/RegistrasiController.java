@@ -27,10 +27,12 @@ public class RegistrasiController {
     public void registrasi() {
         String username = registrasiView.usernameField.getText();
         String password = registrasiView.passwordField.getText();
+        String handphone = registrasiView.handphoneField.getText();
+        String alamat = registrasiView.alamatField.getText();
         
-        User user = new User(username, password);
+        User user = new User(username, password, handphone, alamat);
         
-        boolean isValid = validasi(username, password);
+        boolean isValid = validasi(username, password, handphone, alamat);
         if(isValid) {
             userDAO.insert(user);
             JOptionPane.showMessageDialog(null, "Registrasi berhasil.");
@@ -39,7 +41,7 @@ public class RegistrasiController {
         }
     }
     
-    public boolean validasi(String username, String password) {
+    public boolean validasi(String username, String password, String handphone, String alamat) {
         if(username.equals("") ) {
             JOptionPane.showMessageDialog(null, "Mohon isi username anda.");
             return false;
@@ -65,6 +67,15 @@ public class RegistrasiController {
             return false;
         }
         
+        if( handphone.equals("") ) {
+            JOptionPane.showMessageDialog(null, "Mohon isi nomor handphone anda.");
+            return false;           
+        }
+        
+        if( alamat.equals("") ) {
+           JOptionPane.showMessageDialog(null, "Mohon isi alamat anda.");
+           return false;           
+        }
         return true;
     }
 }

@@ -25,10 +25,12 @@ public class UserDAO implements DAOInterface<User> {
     public void insert(User object) {
         PreparedStatement statement = null;
         try {
-            statement = connection.prepareStatement("INSERT INTO `user` (`id`, `username`, `password`) VALUES (?, ?, ?)");
+            statement = connection.prepareStatement("INSERT INTO `user` (`id`, `username`, `password`, `handphone`, `alamat`) VALUES (?, ?, ?, ?, ?)");
             statement.setString(1, null);
             statement.setString(2, object.getUsername());
             statement.setString(3, object.getPassword());
+            statement.setString(4, object.getHandphone());
+            statement.setString(5, object.getAlamat());
             statement.executeUpdate();
             statement.close();
             
