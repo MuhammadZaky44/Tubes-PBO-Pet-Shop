@@ -28,7 +28,7 @@ public class RegistrasiController {
         String username = registrasiView.usernameField.getText();
         String password = registrasiView.passwordField.getText();
         String handphone = registrasiView.handphoneField.getText();
-        String alamat = registrasiView.alamatField.getText();
+        String alamat = registrasiView.emailField.getText();
         
         User user = new User(username, password, handphone, alamat);
         
@@ -73,7 +73,7 @@ public class RegistrasiController {
         }
         
         if( alamat.equals("") ) {
-           JOptionPane.showMessageDialog(null, "Mohon isi alamat anda.");
+           JOptionPane.showMessageDialog(null, "Mohon isi email anda.");
            return false;           
         }
         return true;

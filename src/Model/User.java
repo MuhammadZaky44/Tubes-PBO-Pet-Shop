@@ -21,16 +21,16 @@ public class User {
     private String username;
     private String password;
     private String handphone;
-    private String alamat;
+    private String email;
     private List<HistoryGrooming> historyGroomingList;
     private List<HistoryPenitipan> historyPenitipanList;
     private List<Hewan> hewanList;
     
-    public User(String username, String password, String handphone, String alamat) {
+    public User(String username, String password, String handphone, String email) {
         this.username = username;
         this.password = password;
         this.handphone = handphone;
-        this.alamat = alamat;
+        this.email = email;
     }
 
     public String getHandphone() {
@@ -41,12 +41,12 @@ public class User {
         this.handphone = handphone;
     }
 
-    public String getAlamat() {
-        return alamat;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAlamat(String alamat) {
-        this.alamat = alamat;
+    public void setAlamat(String email) {
+        this.email = email;
     }
 
     public User(Integer id, String username, String password) {
